@@ -1745,21 +1745,22 @@ exports.copyArray = function(array){
 };
 
 exports.deepCopy = function (obj) {
-    if (typeof obj !== "object" || !obj)
-        return obj;
-    var cons = obj.constructor;
-    if (cons === RegExp)
-        return obj;
+    return Ember.copy(obj);
+    // if (typeof obj !== "object" || !obj)
+    //     return obj;
+    // var cons = obj.constructor;
+    // if (cons === RegExp)
+    //     return obj;
     
-    var copy = cons();
-    for (var key in obj) {
-        if (typeof obj[key] === "object") {
-            copy[key] = exports.deepCopy(obj[key]);
-        } else {
-            copy[key] = obj[key];
-        }
-    }
-    return copy;
+    // var copy = cons();
+    // for (var key in obj) {
+    //     if (typeof obj[key] === "object") {
+    //         copy[key] = exports.deepCopy(obj[key]);
+    //     } else {
+    //         copy[key] = obj[key];
+    //     }
+    // }
+    // return copy;
 };
 
 exports.arrayToMap = function(arr) {
